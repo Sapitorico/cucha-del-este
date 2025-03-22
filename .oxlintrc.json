@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "no-console": "warn",
+    "oxc/no-debugger": "error",
+    "no-alert": "error",
+    "oxc/approx-constant": "warn",
+    "no-plusplus": "off"
+  }
+}
