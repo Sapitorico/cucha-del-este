@@ -17,6 +17,8 @@
     "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
   },
   "dependencies": {
+    "@fontsource-variable/nunito": "^5.2.5",
+    "@fontsource-variable/open-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.3",
     "iconoir": "^7.10.1",

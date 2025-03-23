@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #ee7a14;
+  --color-primary-light: rgba(242, 153, 74, 0.1);
+}
