@@ -1,6 +1,31 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-nunito: 'Nunito', sans-serif;
+  --font-open-sans: 'Open Sans', sans-serif;
+
   --color-primary: #ee7a14;
-  --color-primary-light: rgba(242, 153, 74, 0.1);
+  --color-primary-light-10: hsla(28, 87, 62, 0.1);
+  --color-primary-light-50: hsla(28, 87, 62, 0.5);
+
+  --color-green: #1fc16b;
+  --color-purple: #c5b3f7;
+
+  --spacing-max-w-container: 1224px;
+
+  --shadow-xs: inset 0 0 0 2px #000000;
+  --shadow-sm: 4px 4px 0 0 #000000, inset 0 0 0 2px #000000;
+  --shadow-md: 6px 6px 0 0 #000000, inset 0 0 0 2px #000000;
+  --shadow-lg: 8px 8px 0 0 #000000, inset 0 0 0 2px #000000;
+  --shadow-xl: 12px 12px 0 0 #000000, inset 0 0 0 2px #000000;
+}
+
+html {
+  font-family: var(--font-open-sans);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--spacing-max-w-container);
+  margin-inline: auto;
 }
