@@ -17,6 +17,8 @@
     "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
   },
   "dependencies": {
+    "@fontsource-variable/nunito": "^5.2.5",
+    "@fontsource-variable/open-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.3",
     "iconoir": "^7.10.1",
@@ -45,5 +47,6 @@
       "esbuild",
       "sharp"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af"
 }

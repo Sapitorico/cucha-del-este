@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets'
+import Imag1 from '@/assets/images/hero-grid-image-1.webp'
+import Imag2 from '@/assets/images/hero-grid-image-2.webp'
+import Imag3 from '@/assets/images/hero-grid-image-3.webp'
+import Imag4 from '@/assets/images/hero-grid-image-4.webp'
+import Imag5 from '@/assets/images/hero-grid-image-5.webp'
+import Imag6 from '@/assets/images/hero-grid-image-6.webp'
+import Imag7 from '@/assets/images/hero-grid-image-7.webp'
+---
+
+<div class="grid h-full max-h-[480px] w-full max-w-[640px] grid-cols-9 grid-rows-8 gap-4">
+  <div class="col-span-4 col-start-3 row-span-3 overflow-hidden shadow-lg">
+    <Image
+      src={Imag2}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-3 col-start-7 row-span-2 overflow-hidden shadow-lg">
+    <Image
+      src={Imag3}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-2 col-start-2 row-span-2 row-start-7 overflow-hidden shadow-lg">
+    <Image
+      src={Imag7}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-3 col-start-4 row-span-2 row-start-4 overflow-hidden shadow-lg">
+    <Image
+      src={Imag1}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-2 col-start-7 row-span-3 row-start-3 overflow-hidden shadow-lg">
+    <Image
+      src={Imag6}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-4 col-start-4 row-span-3 row-start-6 overflow-hidden shadow-lg">
+    <Image
+      src={Imag4}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+  <div class="col-span-3 col-start-1 row-span-3 row-start-4 overflow-hidden shadow-lg">
+    <Image
+      src={Imag5}
+      alt="A bird sitting on a nest of eggs."
+      class="h-full w-full max-w-full object-cover object-center"
+    />
+  </div>
+</div>
