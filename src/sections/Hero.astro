@@ -1,9 +1,10 @@
 ---
+import Button from '@/components/Button.astro'
 import HeroGrid from '../components/HeroGrid.astro'
 ---
 
-<section class="bg-primary-light grid place-items-center px-8 py-16">
-  <div class="container flex">
+<section class="bg-primary-light-10 grid place-items-center px-8 py-16 border-b-2">
+  <div class="container flex gap-6">
     <div class="flex flex-1 flex-col justify-center gap-6">
       <div class="flex flex-col">
         <span class="text-xl font-bold">Cucha del este</span>
@@ -16,13 +17,13 @@ import HeroGrid from '../components/HeroGrid.astro'
         un hogar. Adopta, transforma vidas y deja que la tuya también sea transformada.
       </p>
       <div class="flex items-center gap-6">
-        <button>Adoptar Ahora</button><burron>Donar</burron>
+        <Button>Adoptar Ahora</Button><Button>Donar</Button>
       </div>
       <div class="socials-container">
         <span>Siguenos</span>
         <div><button>icono</button><button>icono</button></div>
       </div>
     </div>
-    <div class="flex-1"><HeroGrid /></div>
+    <div class="grid flex-1 place-items-center"><HeroGrid /></div>
   </div>
 </section>
