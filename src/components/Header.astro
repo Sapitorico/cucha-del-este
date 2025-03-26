@@ -1,6 +1,6 @@
 ---
 import Logo from '@/assets/logo.svg'
-import Button from './Button.astro'
+import PrimaryButton from './PrimaryButton.astro'
 ---
 
 <header class="sticky flex h-[6rem] w-full items-center justify-around border-b-[.2rem]">
@@ -17,7 +17,7 @@ import Button from './Button.astro'
       <li>Eventos</li>
     </ul>
   </nav>
-  <Button>Contactanos</Button>
+  <PrimaryButton isCta={true} text="Contactanos" />
 </header>
 
 <style>
