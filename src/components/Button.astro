@@ -1,8 +1,31 @@
 ---
-const { isCta = false, text = 'Donar' } = Astro.props
+// Background color
+const colors = {
+  default: 'black',
+  primary: 'primary', // Orange alike
+}
+// Vertical padding values
+// Tailwind variable sizes
+const sizes = {
+  L: '3', // Large => class='p-3'
+  M: '2', // Medium => class='p-2'
+}
+// Typescript shit
+interface Props {
+  color?: keyof typeof colors
+  size?: keyof typeof sizes
+}
+// Get Astro props
+const { color = 'default', size = 'L' } = Astro.props
+
+// ---------------------------
+// -- Sigo pensando que es  --
+// -- mejor con booleans :/ --
+// ---------------------------
 ---
 
 <button
-  class=`w-[12rem] cursor-pointer pt-3 pb-3 text-[#fff] shadow-[5px_5px_rgb(0,0,0)] border-2 border-black ${isCta ? 'bg-[var(--color-primary)]' : 'bg-[rgba(0,0,0,0.8)]'}`
-  >{text}</button
+  class=`active:shadow-sm active:translate-0 flex w-48 transform cursor-pointer border-2  border-black bg-${colors[color]} py-${sizes[size]} shadow-sm transition-all ease-out hover:-translate-1 hover:shadow-lg`
 >
+  <span class="w-full text-center text-lg font-semibold text-white"><slot /></span>
+</button>
