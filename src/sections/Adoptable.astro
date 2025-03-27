@@ -1,15 +1,28 @@
 ---
-import Button from "@/components/Button.astro"
+import Button from '@/components/Button.astro'
+import CardCuchano from '@/components/CardCuchano.astro'
+import Slider from '@/components/Slider.astro'
+import { cuchanos } from '@/utils/cuchanosMock'
 ---
 
 <section class="section">
-  <div class="container text-center items-center flex flex-col">
+  <div class="container flex flex-col items-center text-center">
     <div class="text-wrapper">
       <h1 class="text-5xl font-black">En Adopción</h1>
-      <p class="text-base">Cada adopción es una segunda oportunidad. ¡Ayúdanos a escribir finales felices!</p>
+      <p class="text-base">
+        Cada adopción es una segunda oportunidad. ¡Ayúdanos a escribir finales felices!
+      </p>
     </div>
-    <div class="slider-container">
-      carta cuchano
+    <div class="flex w-full">
+      <Slider>
+        <div class="flex w-full justify-around">
+          {
+            cuchanos.map((dog) => (
+              <CardCuchano name={dog.name} gender={dog.gender} age={dog.age} info={dog.info} />
+            ))
+          }
+        </div>
+      </Slider>
     </div>
     <Button>Conocer a todos</Button>
   </div>

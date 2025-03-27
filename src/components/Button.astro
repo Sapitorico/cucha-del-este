@@ -4,17 +4,32 @@ const colors = {
   primary: 'bg-primary',
 }
 
+const texts = {
+  L: 'text-lg',
+  M: 'text-md',
+  S: 'text-sm',
+}
+
 const sizes = {
   L: 'py-3',
   M: 'py-2',
+  S: 'py-1',
+}
+
+const borders = {
+  L: 'border-2',
+  M: 'border-1',
 }
 
 interface Props {
   color?: keyof typeof colors
   size?: keyof typeof sizes
+  text?: keyof typeof texts
+  stretch?: boolean
+  border?: keyof typeof borders
 }
 
-const { color = 'default', size = 'L' } = Astro.props
+const { color = 'default', size = 'M', text = 'L', stretch = false, border = 'L' } = Astro.props
 ---
 
 <button
@@ -25,7 +40,7 @@ const { color = 'default', size = 'L' } = Astro.props
     'w-48',
     'transform',
     'cursor-pointer',
-    'border-2',
+    borders[border],
     'border-black',
     colors[color],
     sizes[size],
@@ -34,7 +49,8 @@ const { color = 'default', size = 'L' } = Astro.props
     'ease-out',
     'hover:-translate-1',
     'hover:shadow-lg',
+    stretch && 'grow',
   ]}
 >
-  <span class="w-full text-center text-lg font-semibold text-white"><slot /></span>
+  <span class=`w-full text-center font-semibold text-white ${texts[text]}`><slot /></span>
 </button>

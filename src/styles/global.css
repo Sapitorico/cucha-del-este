@@ -11,6 +11,8 @@
   --color-green: #1fc16b;
   --color-purple: #c5b3f7;
 
+  --color-black-1/10: hsla(0, 0%, 33%, 1);
+
   --shadow-xs: inset 0 0 0 2px #000000;
   --shadow-sm: 4px 4px 0 0 #000000, inset 0 0 0 2px #000000;
   --shadow-md: 6px 6px 0 0 #000000, inset 0 0 0 2px #000000;
@@ -60,8 +62,8 @@ p {
   text-wrap: pretty;
 }
 
-.section{
-  display:grid;
-  place-items:center;
+.section {
+  display: grid;
+  place-items: center;
   padding-block: 4rem;
 }

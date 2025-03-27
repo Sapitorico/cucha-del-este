@@ -64,8 +64,7 @@ import ButtonPrimary from './ButtonPrimary.astro'
 
 <script>
   const navItems = document.querySelectorAll('li')
-  const test = navItems[1].getBoundingClientRect
-  console.log(test)
+  const activeItem = document.getElementById('active')
   // test.clientWidth gives width of DOM element in px!
   // Make function to move navContainer::afeter to the nav element and be its size
   const setFollower = (width = 0, right = 0, left = 0) => {
@@ -74,6 +73,11 @@ import ButtonPrimary from './ButtonPrimary.astro'
     document.documentElement.style.setProperty('--animation-followerRight', `${right}px`)
     document.documentElement.style.setProperty('--animation-followerLeft', `${left}px`)
   }
+  // Set follower position and size at first mount
+  const right = activeItem.getBoundingClientRect().right
+  const left = activeItem.getBoundingClientRect().left
+  const width = activeItem.clientWidth
+  setFollower(width, right, left)
   // Clears the "active" class from all nav items
   const clearActive = () => {
     navItems.forEach((item) => {

@@ -1,0 +1,32 @@
+---
+import DogImage from '@/assets/images/hero-grid-image-1.webp'
+import Image from 'astro/components/Image.astro'
+import Button from './Button.astro'
+
+const {
+  name = 'Pata Corta',
+  gender = 'Macho',
+  age = '6',
+  info = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vitae perspiciatis pariatur mollitia? Odio repellat sequi ut nobis minus, a deleniti saepe eos officia. Dicta dignissimoseligendi similique consectetur eos.',
+  image = DogImage,
+} = Astro.props
+---
+
+<div class="bg-primary-light-10 flex max-w-[288px] flex-col items-center overflow-hidden shadow-sm">
+  <figure class="h-full w-full">
+    <Image src={image} alt="Happy dog!" class="h-[360px] w-max" />
+    <span class="loguito"></span>
+  </figure>
+  <div class="font-nunito flex h-full w-full flex-col items-start px-3 py-2">
+    <h2 class="text-xl font-bold">{name}</h2>
+    <p class="text-black-1/10 text-sm font-light">{gender} {age}</p>
+    <p
+      class="line-clamp-3 max-h-[58px] overflow-hidden text-left text-sm text-ellipsis whitespace-nowrap"
+    >
+      {info}
+    </p>
+    <div class="mt-2.5 mb-1 flex h-fit w-full">
+      <Button size="S" color="primary" text="S" stretch={true} border="M">Conoce a {name}</Button>
+    </div>
+  </div>
+</div>
