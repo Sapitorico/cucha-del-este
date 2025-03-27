@@ -4,12 +4,12 @@ import Facebook from 'iconoir/icons/facebook.svg'
 
 const hrefs = {
   instagram: 'https://www.instagram.com/cuchadelesteok/',
-  facebook: 'https://www.facebook.com/cuchadeleste'
+  facebook: 'https://www.facebook.com/cuchadeleste',
 }
 
 const icons = {
   instagram: Instagram,
-  facebook: Facebook
+  facebook: Facebook,
 }
 
 interface Props {
@@ -21,6 +21,9 @@ const { social = 'instagram' } = Astro.props
 const IconComponent = icons[social]
 ---
 
-<a class="bg-primary-light-50 w-9 h-9 border-2 border-black grid place-items-center" href={hrefs[social]}>
+<a
+  class="bg-primary-light-50 grid h-8 w-8 place-items-center border-2 border-black"
+  href={hrefs[social]}
+>
   <IconComponent color="black" height={24} width={24} stroke-width={2} />
 </a>

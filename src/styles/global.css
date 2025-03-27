@@ -20,7 +20,8 @@
   --animate-floating: floating 3s ease-in-out infinite;
 
   @keyframes floating {
-    0%, 100%{
+    0%,
+    100% {
       transform: translate(-4px, -4px);
       box-shadow: var(--shadow-lg);
       animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
