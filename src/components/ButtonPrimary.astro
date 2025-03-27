@@ -1,0 +1,17 @@
+---
+// Get Astro props
+// isCta => True if button is Call to Action
+const { isCta = false } = Astro.props
+---
+
+<button
+  class=`
+    shadow-sm active:shadow-sm active:translate-0
+    flex w-48 transform cursor-pointer
+    border-1  border-black
+    transition-all ease-out hover:-translate-1 hover:shadow-lg
+    ${isCta ? 'bg-primary py-4 text-white' : 'bg-primary-light-10 text-black py-3'}
+    `
+>
+  <span class="w-full text-center text-lg font-semibold"><slot /></span>
+</button>
