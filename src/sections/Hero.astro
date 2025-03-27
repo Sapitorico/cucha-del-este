@@ -1,10 +1,8 @@
 ---
 import ButtonSecondary from '@/components/ButtonSecondary.astro'
 import HeroGrid from '../components/HeroGrid.astro'
-import WhatsappIcon from '@/assets/whatsapp.svg'
-import InstagramIcon from '@/assets/instagram.svg'
-import FacebookIcon from '@/assets/facebook.svg'
-import ButtonPrimary from '@/components/ButtonPrimary.astro'
+import Button from '@/components/Button.astro'
+import SocialButton from '@/components/SocialButton.astro'
 ---
 
 <section class="bg-primary-light-10 grid place-items-center border-b-2 px-8 py-16">
@@ -21,15 +19,14 @@ import ButtonPrimary from '@/components/ButtonPrimary.astro'
         un hogar. Adopta, transforma vidas y deja que la tuya también sea transformada.
       </p>
       <div class="flex items-center gap-6">
-        <ButtonPrimary>Adopta</ButtonPrimary>
-        <ButtonPrimary isCta={true}>Donar</ButtonPrimary>
+        <Button color="primary">Adopta</Button>
+        <Button>Donar</Button>
       </div>
       <div class="socials-container">
         <span>Siguenos</span>
         <div class="flex">
-          <a><WhatsappIcon /></a>
-          <a><InstagramIcon /></a>
-          <a><FacebookIcon /></a>
+          <SocialButton social="instagram" />
+          <SocialButton social="facebook" />
         </div>
       </div>
     </div>
