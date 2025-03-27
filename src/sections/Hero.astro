@@ -5,7 +5,7 @@ import SocialButton from '@/components/SocialButton.astro'
 ---
 
 <section class="bg-primary-light-10 grid place-items-center border-b-2 px-8 py-16">
-  <div class="container flex gap-6">
+  <div class="container flex gap-6 flex-wrap">
     <div class="flex flex-1 flex-col justify-center gap-6">
       <div class="flex flex-col">
         <span class="text-xl font-bold">Cucha del este</span>
@@ -21,9 +21,9 @@ import SocialButton from '@/components/SocialButton.astro'
         <Button color="primary">Adopta</Button>
         <Button>Donar</Button>
       </div>
-      <div class="socials-container">
-        <span>Siguenos</span>
-        <div class="flex">
+      <div class="flex flex-col gap-2">
+        <span class="text-sm">Siguenos</span>
+        <div class="flex gap-4">
           <SocialButton social="instagram" />
           <SocialButton social="facebook" />
         </div>
