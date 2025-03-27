@@ -1,31 +1,45 @@
 ---
-// Background color
 const colors = {
-  default: 'black',
-  primary: 'primary', // Orange alike
+  default: 'bg-black',
+  primary: 'bg-primary',
 }
-// Vertical padding values
-// Tailwind variable sizes
+
 const sizes = {
+<<<<<<< HEAD:src/components/ButtonSecondary.astro
   L: '3', // Large => class='py-3'
   M: '2', // Medium => class='py-2'
+=======
+  L: 'py-3',
+  M: 'py-2',
+>>>>>>> 77732443bf3e1c6ec33920dc5da933397b286f88:src/components/Button.astro
 }
-// Typescript shit
+
 interface Props {
   color?: keyof typeof colors
   size?: keyof typeof sizes
 }
-// Get Astro props
-const { color = 'default', size = 'L' } = Astro.props
 
-// ---------------------------
-// -- Sigo pensando que es  --
-// -- mejor con booleans :/ --
-// ---------------------------
+const { color = 'default', size = 'L' } = Astro.props
 ---
 
 <button
-  class=`active:shadow-sm active:translate-0 flex w-48 transform cursor-pointer border-2  border-black bg-${colors[color]} py-${sizes[size]} shadow-sm transition-all ease-out hover:-translate-1 hover:shadow-lg`
+  class:list={[
+    'active:shadow-sm',
+    'active:translate-0',
+    'flex',
+    'w-48',
+    'transform',
+    'cursor-pointer',
+    'border-2',
+    'border-black',
+    colors[color],
+    sizes[size],
+    'shadow-sm',
+    'transition-all',
+    'ease-out',
+    'hover:-translate-1',
+    'hover:shadow-lg',
+  ]}
 >
   <span class="w-full text-center text-lg font-semibold text-white"><slot /></span>
 </button>
