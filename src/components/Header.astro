@@ -1,46 +1,118 @@
 ---
 import Logo from '@/assets/logo.svg'
-import Button from './Button.astro'
+import ButtonPrimary from './ButtonPrimary.astro'
 ---
 
-<header class="sticky flex h-[6rem] w-full items-center justify-around border-b-[.2rem]">
+<header class="sticky flex h-[6rem] w-full items-center justify-around">
   <picture class="img-container">
     <Logo />
   </picture>
   <nav class="align-center h-full">
     <ul
-      class="flex h-full gap-10 font-bold [&>li]:flex [&>li]:h-full [&>li]:cursor-pointer [&>li]:items-center [&>li]:p-4"
+      id="navContainer"
+      class="flex h-full font-bold [&>li]:flex [&>li]:h-full [&>li]:cursor-pointer [&>li]:items-center [&>li]:px-8 [&>li]:py-4"
     >
-      <li>Hogar</li>
+      <li id="active">Hogar</li>
       <li>Nuestros Cuchanos</li>
       <li>Sobre Nosotros</li>
       <li>Eventos</li>
     </ul>
   </nav>
-  <Button>Contactanos</Button>
+  <ButtonPrimary isCta={true}>Donar</ButtonPrimary>
 </header>
 
 <style>
-  .active {
+  :root {
+    --animation-followerActive: hidden;
+    --animation-followerWidth: 80px;
+    --animation-followerRight: 0px;
+    --animation-followerLeft: 0px;
+  }
+
+  header {
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    background-color: black;
+  }
+
+  #navContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: var(--animation-followerRight);
+    left: var(--animation-followerLeft);
+    width: var(--animation-followerWidth);
+    height: 3px;
+    background-color: #ee7a14;
+    visibility: var(--animation-followerActive);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  #active {
     background-color: #ee7a1436;
-    box-shadow: inset 0 -0.2rem 0 0 #ee7a14;
+    box-shadow: inset 0 -0.2rem 0 0 rgba(242, 153, 74, 0.5);
   }
 </style>
 
 <script>
   const navItems = document.querySelectorAll('li')
+  const test = navItems[1].getBoundingClientRect
+  console.log(test)
+  // test.clientWidth gives width of DOM element in px!
+  // Make function to move navContainer::afeter to the nav element and be its size
+  const setFollower = (width = 0, right = 0, left = 0) => {
+    document.documentElement.style.setProperty('--animation-followerActive', 'visible')
+    document.documentElement.style.setProperty('--animation-followerWidth', `${width}px`)
+    document.documentElement.style.setProperty('--animation-followerRight', `${right}px`)
+    document.documentElement.style.setProperty('--animation-followerLeft', `${left}px`)
+  }
   // Clears the "active" class from all nav items
   const clearActive = () => {
     navItems.forEach((item) => {
-      item.classList.remove('active')
+      item.id = 'inactive'
     })
   }
   // Adds click event to nav items
   navItems.forEach((item: HTMLElement) => {
     item.addEventListener('click', () => {
-      if (item.classList.contains('active')) return
+      if (item.id === 'active') return
       clearActive()
-      item.classList.add('active')
+      item.id = 'active'
     })
   })
+  // Hover animation
+  navItems.forEach((item: HTMLElement) => {
+    item.addEventListener('mouseenter', () => {
+      const right = item.getBoundingClientRect().right
+      const left = item.getBoundingClientRect().left
+      const width = item.clientWidth
+      setFollower(width, right, left)
+    })
+
+    item.addEventListener('mouseleave', () => {
+      const activeNavItem = document.getElementById('active')
+      const right = activeNavItem.getBoundingClientRect().right
+      const left = activeNavItem.getBoundingClientRect().left
+      const width = activeNavItem.clientWidth
+      setFollower(width, right, left)
+    })
+  })
+
+  window.addEventListener('resize', () => {
+    const activeNavItem = document.getElementById('active')
+    const right = activeNavItem.getBoundingClientRect().right
+    const left = activeNavItem.getBoundingClientRect().left
+    const width = activeNavItem.clientWidth
+    setFollower(width, right, left)
+  })
+
+  // TODO: pro animation for nav items
 </script>
