@@ -4,6 +4,7 @@ import HeroGrid from '../components/HeroGrid.astro'
 import WhatsappIcon from '@/assets/whatsapp.svg'
 import InstagramIcon from '@/assets/instagram.svg'
 import FacebookIcon from '@/assets/facebook.svg'
+import SocialButton from '@/components/SocialButton.astro'
 ---
 
 <section class="bg-primary-light-10 grid place-items-center border-b-2 px-8 py-16">
@@ -26,9 +27,8 @@ import FacebookIcon from '@/assets/facebook.svg'
       <div class="socials-container">
         <span>Siguenos</span>
         <div class="flex">
-          <a><WhatsappIcon /></a>
-          <a><InstagramIcon /></a>
-          <a><FacebookIcon /></a>
+          <SocialButton social="instagram" />
+          <SocialButton social="facebook" />
         </div>
       </div>
     </div>
