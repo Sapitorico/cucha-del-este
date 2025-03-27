@@ -34,8 +34,17 @@
   }
 }
 
+html,
 body {
   font-family: 'Open Sans Variable', sans-serif;
+  margin: 0;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1,
@@ -49,4 +58,10 @@ h4 {
 
 p {
   text-wrap: pretty;
+}
+
+.section{
+  display:grid;
+  place-items:center;
+  padding-block: 4rem;
 }
