@@ -6,8 +6,8 @@ import { cuchanos } from '@/utils/cuchanosMock'
 ---
 
 <section class="section">
-  <div class="container flex flex-col items-center text-center">
-    <div class="text-wrapper">
+  <div class="container flex flex-col items-center gap-8 text-center">
+    <div class="text-wrapper flex flex-col gap-8">
       <h1 class="text-5xl font-black">En Adopción</h1>
       <p class="text-base">
         Cada adopción es una segunda oportunidad. ¡Ayúdanos a escribir finales felices!
@@ -24,6 +24,8 @@ import { cuchanos } from '@/utils/cuchanosMock'
         </div>
       </Slider>
     </div>
-    <Button>Conocer a todos</Button>
+    <div class="flex w-full max-w-[288px]">
+      <Button text="S" stretch={true}>Conocer a todos</Button>
+    </div>
   </div>
 </section>

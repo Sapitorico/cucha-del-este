@@ -1,0 +1,32 @@
+---
+import Button from '@/components/Button.astro'
+import CardCuchano from '@/components/CardCuchano.astro'
+import Slider from '@/components/Slider.astro'
+import { cuchanos } from '@/utils/cuchanosMock'
+---
+
+<section class="section">
+  <div class="container flex flex-col items-center justify-between gap-8 text-center">
+    <div class="text-wrapper flex flex-col gap-8">
+      <h1 class="text-5xl font-black">Casos Especiales</h1>
+      <p class="text-base">
+        Adopciones con compromiso: un hogar preparado para sus necesidades únicas. Lee su
+        descripción con atención y asegúrate de brindarles el cuidado que merecen.
+      </p>
+    </div>
+    <div class="flex w-full">
+      <Slider>
+        <div class="flex w-full justify-around">
+          {
+            cuchanos.map((dog) => (
+              <CardCuchano name={dog.name} gender={dog.gender} age={dog.age} info={dog.info} />
+            ))
+          }
+        </div>
+      </Slider>
+    </div>
+    <div class="flex w-full max-w-[288px]">
+      <Button stretch={true} text="M">Conocer a todos</Button>
+    </div>
+  </div>
+</section>
