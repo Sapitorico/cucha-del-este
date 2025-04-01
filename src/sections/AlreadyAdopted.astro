@@ -1,21 +1,19 @@
 ---
-import Button from '@/components/Button.astro'
 import CardCuchano from '@/components/CardCuchano.astro'
-import { moreCuchanos } from '@/utils/cuchanosMock'
 ---
 
 <section class="section overflow-hidden">
   <div class="container flex flex-col items-center gap-8 text-center">
-    <div class="text-wrapper flex flex-col gap-8">
+    <div class="flex flex-col gap-8">
       <h1 class="text-5xl font-black">¡Ellos ya encontraron su hogar!</h1>
     </div>
     <div class="flex h-[420px] w-full justify-center gap-10">
       {
-        moreCuchanos.map((cuchano, index) => (
+        Array.from({ length: 5 }).map((_, index) => (
           <div class={`h-fit w-fit ${index % 2 !== 0 && 'self-end'}`}>
-            <CardCuchano isSimpleCard={true} name={cuchano.name} />
+              <CardCuchano adopted/>
           </div>
-        ))
+          ))
       }
     </div>
   </div>

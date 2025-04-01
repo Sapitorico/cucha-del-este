@@ -12,6 +12,7 @@
   --color-purple: #c5b3f7;
 
   --color-black-1/10: hsla(0, 0%, 33%, 1);
+  --color-grey: #555555;
 
   --shadow-xs: inset 0 0 0 2px #000000;
   --shadow-sm: 4px 4px 0 0 #000000, inset 0 0 0 2px #000000;
