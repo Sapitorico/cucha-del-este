@@ -9,6 +9,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   experimental: {
-    svg: true,
+    svg: {
+      mode: 'sprite',
+    }
   },
 })

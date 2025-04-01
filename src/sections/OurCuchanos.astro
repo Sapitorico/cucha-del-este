@@ -1,5 +1,6 @@
 ---
 import Button from '@/components/Button.astro'
+import CardCuchano from '@/components/CardCuchano.astro'
 import Portrait from '@/components/Portrait.astro'
 
 const array = Array(8).fill('cuchano')
@@ -7,7 +8,7 @@ const array = Array(8).fill('cuchano')
 
 <section class="section bg-primary-light-10 border-t-2 border-b-2">
   <div class="container flex flex-col items-center gap-8 text-center">
-    <div class="text-wrapper flex flex-col gap-8">
+    <div class="flex flex-col gap-8">
       <h1 class="text-5xl font-black">Nuestros Cuchanos</h1>
       <p class="text-base">
         Cada cuchano tiene una historia. ¡Ayúdanos a escribir su final feliz o a cuidarlos para
@@ -15,10 +16,10 @@ const array = Array(8).fill('cuchano')
       </p>
     </div>
     <div class="flex w-full flex-wrap items-center justify-center gap-10">
-      {array.map((cuchano) => <Portrait />)}
+      {array.map((cuchano) => <CardCuchano imageOnly />)}
     </div>
     <div class="flex w-full max-w-[288px]">
-      <Button text="S" stretch={true} color="primary">Conocer mas cuchanos!</Button>
+      <Button color="primary" className="grow">Conocer mas cuchanos!</Button>
     </div>
   </div>
 </section>
