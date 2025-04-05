@@ -6,7 +6,7 @@ import ArrowRight from 'iconoir/icons/arrow-right.svg'
 const carousel_id = Math.random().toString(36).slice(2, 11)
 ---
 
-<div class=`relative w-full ${carousel_id}` aria-roledescription="carousel" >
+<div class=`relative w-full ${carousel_id}` aria-roledescription="carousel">
   <div class="carousel__viewport overflow-hidden py-4">
     <div class="-ml-4 flex">
       <slot />
@@ -25,7 +25,7 @@ const carousel_id = Math.random().toString(36).slice(2, 11)
   </CarouselButton>
 </div>
 
-<script is:inline type="module" define:vars={{carousel_id}}>
+<script is:inline type="module" define:vars={{ carousel_id }}>
   import EmblaCarousel from '/node_modules/embla-carousel'
 
   const OPTIONS = { dragFree: true }

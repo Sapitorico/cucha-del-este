@@ -1,0 +1,73 @@
+---
+import CardCuchano from '@/components/CardCuchano.astro'
+
+const width = '320px'
+const height = '464px'
+const quantity = 100
+
+const items = Array.from({ length: quantity }, (_, index) => ({
+  position: index + 1,
+  index: index,
+}))
+---
+
+<div
+  class="scroller [mask-image-linear-gradient(to_right,transparent,#000_10%_90%,transparent) h-128 w-screen overflow-hidden bg-green-100 py-4"
+>
+  <div
+    class="scroller__inner flex h-full w-max animate-(--scroll) flex-nowrap items-center space-x-8 bg-red-100"
+  >
+    {
+      items.map((item) => (
+        <div class={`h-[464px] w-[320px] ${item.index % 2 !== 0 && '-translate-y-6'}`}>
+          <CardCuchano adopted />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  :root {
+    --scroll: scroll 20s linear infinite;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 1rem));
+    }
+  }
+</style>
+
+<script>
+  // Selecciona todos los elementos con la clase 'scroller'
+  const scrollers = document.querySelectorAll('.scroller') as NodeListOf<HTMLDivElement>
+
+  if (scrollers) {
+    scrollers.forEach((scroller) => {
+      // Selecciona el contenedor interno con la clase 'scroller__inner'
+      const scrollerInner = scroller.querySelector('.scroller__inner') as HTMLDivElement | null
+      if (!scrollerInner) return
+
+      // Convierte los hijos del contenedor interno en un array tipado
+      const scrollerContent = Array.from(scrollerInner.children) as HTMLElement[]
+
+      // Duplica cada elemento, agrega el atributo aria-hidden y lo añade al contenedor interno
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true) as HTMLElement
+        duplicatedItem.setAttribute('aria-hidden', 'true')
+        scrollerInner.appendChild(duplicatedItem)
+      })
+
+      // Ajusta dinámicamente la duración de la animación
+      const itemWidth = 320 + 16 // Ancho de cada tarjeta + espacio entre ellas (1rem = 16px)
+      const quantity = scrollerContent.length // Número de elementos originales
+      const speed = 100 // Velocidad deseada en píxeles por segundo
+
+      const animationDuration = ((itemWidth * quantity) / speed).toFixed(2) // Duración en segundos
+
+      // Aplica la duración directamente al estilo en línea
+      scrollerInner.style.animationDuration = animationDuration + 's'
+    })
+  }
+</script>
