@@ -8,9 +8,6 @@ interface Props extends HTMLAttributes<'div'> {
 const { className, ...props } = Astro.props
 ---
 
-<div
-  role="group"
-  class={`basis-full min-w-0 shrink-0 grow-0 pl-4 flex ${className}`}
->
+<div role="group" class={`basis-full min-w-0 shrink-0 grow-0 pl-4 flex ${className}`}>
   <slot />
 </div>
