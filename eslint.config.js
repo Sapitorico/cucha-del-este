@@ -17,6 +17,9 @@ export default defineConfig([
     'coverage',
     '.astro/*',
     'node_modules/*',
+    '.vercel/*',
+    '.vscode/*',
+    '.astro/*',
   ]),
   { files: ['**/*.{js,mjs,cjs,ts,tsx,astro}'] },
   {

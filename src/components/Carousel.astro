@@ -2,11 +2,9 @@
 import CarouselButton from './CarouselButton.astro'
 import ArrowLeft from 'iconoir/icons/arrow-left.svg'
 import ArrowRight from 'iconoir/icons/arrow-right.svg'
-
-const carousel_id = Math.random().toString(36).slice(2, 11)
 ---
 
-<div class=`relative w-full ${carousel_id}` aria-roledescription="carousel">
+<div class="carousel relative w-full">
   <div class="carousel__viewport overflow-hidden py-4">
     <div class="-ml-4 flex">
       <slot />
@@ -18,71 +16,10 @@ const carousel_id = Math.random().toString(36).slice(2, 11)
     <ArrowLeft />
   </CarouselButton>
   <CarouselButton
-    data-carousel-next
     className="carousel__button__next absolute top-1/2 -right-12 -translate-y-1/2 border-black"
   >
     <ArrowRight />
   </CarouselButton>
 </div>
 
-<script is:inline type="module" define:vars={{ carousel_id }}>
-  import EmblaCarousel from '/node_modules/embla-carousel'
-
-  const OPTIONS = { dragFree: true }
-
-  const emblaNode = document.querySelector(`.${carousel_id}`)
-  const viewportNode = emblaNode.querySelector('.carousel__viewport')
-  const prevBtnNode = emblaNode.querySelector('.carousel__button__prev')
-  const nextBtnNode = emblaNode.querySelector('.carousel__button__next')
-
-  if (emblaNode) {
-    const emblaApi = EmblaCarousel(viewportNode, OPTIONS)
-
-    const addTogglePrevNextBtnsActive = (emblaApi, prevBtn, nextBtn) => {
-      const togglePrevNextBtnsState = () => {
-        if (emblaApi.canScrollPrev()) prevBtn.removeAttribute('disabled')
-        else prevBtn.setAttribute('disabled', 'disabled')
-
-        if (emblaApi.canScrollNext()) nextBtn.removeAttribute('disabled')
-        else nextBtn.setAttribute('disabled', 'disabled')
-      }
-
-      emblaApi
-        .on('select', togglePrevNextBtnsState)
-        .on('init', togglePrevNextBtnsState)
-        .on('reInit', togglePrevNextBtnsState)
-
-      return () => {
-        prevBtn.removeAttribute('disabled')
-        nextBtn.removeAttribute('disabled')
-      }
-    }
-
-    const addPrevNextBtnsClickHandlers = (emblaApi, prevBtn, nextBtn) => {
-      const scrollPrev = () => {
-        emblaApi.scrollPrev()
-      }
-      const scrollNext = () => {
-        emblaApi.scrollNext()
-      }
-      prevBtn.addEventListener('click', scrollPrev, false)
-      nextBtn.addEventListener('click', scrollNext, false)
-
-      const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActive(emblaApi, prevBtn, nextBtn)
-
-      return () => {
-        removeTogglePrevNextBtnsActive()
-        prevBtn.removeEventListener('click', scrollPrev, false)
-        nextBtn.removeEventListener('click', scrollNext, false)
-      }
-    }
-
-    const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
-      emblaApi,
-      prevBtnNode,
-      nextBtnNode
-    )
-
-    emblaApi.on('destroy', removePrevNextBtnsClickHandlers)
-  }
-</script>
+<script src="../scripts/carousel.ts"></script>
