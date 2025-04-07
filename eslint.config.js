@@ -4,6 +4,8 @@ import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintPluginAstro from 'eslint-plugin-astro'
 import oxlint from 'eslint-plugin-oxlint'
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+
 
 export default defineConfig([
   globalIgnores([
@@ -15,6 +17,9 @@ export default defineConfig([
     'coverage',
     '.astro/*',
     'node_modules/*',
+    '.vercel/*',
+    '.vscode/*',
+    '.astro/*',
   ]),
   { files: ['**/*.{js,mjs,cjs,ts,tsx,astro}'] },
   {
@@ -25,4 +30,5 @@ export default defineConfig([
   tseslint.configs.recommended,
   eslintPluginAstro.configs.recommended,
   oxlint.configs['flat/recommended'],
+  eslintConfigPrettier
 ])

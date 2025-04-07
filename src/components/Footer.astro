@@ -1,0 +1,39 @@
+---
+import Image from 'astro/components/Image.astro'
+import logo from '@/assets/logoFull.png'
+import SocialButton from './SocialButton.astro'
+import Whatsapp from '@/assets/whatsapp.svg'
+---
+
+<footer class="flex justify-around border-t-2 px-10 py-20">
+  <div class="flex flex-col">
+    <picture class="mb-5">
+      <Image src={logo} alt="Cuchanos logo" class="h-[112px] w-fit" />
+    </picture>
+    <p class="mb-3"><strong>ONG</strong> Refugio de animales</p>
+    <div class="flex gap-5">
+      <SocialButton social="facebook" />
+      <SocialButton social="instagram" />
+    </div>
+  </div>
+  <div class="flex flex-col gap-5">
+    <h2 class="text-3xl font-black">Sobre Nosotros</h2>
+    <p class="w-[300px]">
+      Somos una <strong>ONG</strong> dedicada al rescate y bienestar de perros y gatos callejeros.
+    </p>
+    <p>Te invitamos a conocer mas...</p>
+  </div>
+  <nav>
+    <h2 class="mb-2 text-3xl font-black">Navega</h2>
+    <ul class="flex flex-col gap-2">
+      <li>Inicio</li>
+      <li>Nuestros Cuchanos</li>
+      <li>Sobre Nosotros</li>
+      <li>Eventos</li>
+    </ul>
+  </nav>
+  <div>
+    <h2 class="mb-2 text-3xl font-black">Contáctanos</h2>
+    <Whatsapp class="h-[32px] w-[32px]" />
+  </div>
+</footer>

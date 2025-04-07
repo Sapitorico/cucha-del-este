@@ -1,8 +1,45 @@
 ---
-const { isCta = false, text = 'Donar' } = Astro.props
+import type { HTMLAttributes } from 'astro/types'
+
+const colors = {
+  default: 'bg-black',
+  primary: 'bg-primary',
+}
+
+const sizes = {
+  L: ['py-3', 'text-lg', 'border-2'],
+  M: ['py-2', 'text-md', 'border-1'],
+  S: ['py-1', 'text-sm', 'border-1/2'],
+}
+
+interface Props extends HTMLAttributes<'button'> {
+  color?: keyof typeof colors
+  size?: keyof typeof sizes
+  className?: string
+}
+
+const { color = 'default', size = 'L', className, ...props } = Astro.props
 ---
 
 <button
-  class=`w-[12rem] cursor-pointer pt-3 pb-3 text-[#fff] shadow-[5px_5px_rgb(0,0,0)] border-2 border-black ${isCta ? 'bg-[var(--color-primary)]' : 'bg-[rgba(0,0,0,0.8)]'}`
-  >{text}</button
+  class:list={[
+    'active:shadow-sm',
+    'active:translate-0',
+    'flex',
+    'w-48',
+    'transform',
+    'cursor-pointer',
+    'border-black',
+    colors[color],
+    sizes[size],
+    'shadow-sm',
+    'transition-all',
+    'ease-out',
+    'hover:-translate-1',
+    'hover:shadow-lg',
+    className || '',
+  ]}
+  {...props}
 >
+  <span class="w-full text-center font-semibold text-white"><slot /></span>
+</button>

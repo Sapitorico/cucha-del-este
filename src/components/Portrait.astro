@@ -1,0 +1,9 @@
+---
+import DogImage from '@/assets/images/hero-grid-image-1.webp'
+import Image from 'astro/components/Image.astro'
+const { img = DogImage } = Astro.props
+---
+
+<picture class="h-fit w-fit shadow-md">
+  <Image src={img} alt="asereje" class="h-[360px] w-full max-w-[288px]" />
+</picture>

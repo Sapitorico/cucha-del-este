@@ -1,0 +1,25 @@
+---
+import Button from '@/components/Button.astro'
+import CardCuchano from '@/components/CardCuchano.astro'
+import Portrait from '@/components/Portrait.astro'
+
+const array = Array(8).fill('cuchano')
+---
+
+<section class="section bg-primary-light-10 border-t-2 border-b-2">
+  <div class="container flex flex-col items-center gap-8 text-center">
+    <div class="flex flex-col gap-8">
+      <h1 class="text-5xl font-black">Nuestros Cuchanos</h1>
+      <p class="text-base">
+        Cada cuchano tiene una historia. ¡Ayúdanos a escribir su final feliz o a cuidarlos para
+        siempre!
+      </p>
+    </div>
+    <div class="flex w-full flex-wrap items-center justify-center gap-10">
+      {array.map((cuchano) => <CardCuchano imageOnly />)}
+    </div>
+    <div class="flex w-full max-w-[288px]">
+      <Button color="primary" className="grow">Conocer mas cuchanos!</Button>
+    </div>
+  </div>
+</section>

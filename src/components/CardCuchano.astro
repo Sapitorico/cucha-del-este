@@ -1,0 +1,60 @@
+---
+import Image from 'astro/components/Image.astro'
+import Button from './Button.astro'
+import Logo from '@/assets/logo.svg'
+interface Props {
+  image?: string
+  name?: string
+  gender?: string
+  age?: number
+  presentation?: string
+  imageOnly?: boolean
+  adopted?: boolean
+}
+
+const {
+  image = 'https://placehold.co/320x400?text=4:5',
+  name = 'Nombre',
+  gender = 'genero',
+  age = 0,
+  presentation = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vitae perspiciatis pariatur mollitia? Odio repellat sequi ut nobis minus, a deleniti saepe eos officia. Dicta dignissimoseligendi similique consectetur eos.',
+  imageOnly = false,
+  adopted = false,
+} = Astro.props
+---
+
+<div class="bg-primary-light-10 flex max-w-80 flex-col shadow-xl">
+  <div class="realiteve h-full w-full overflow-hidden">
+    <span
+      class="border-primary absolute grid size-8 translate-2 place-items-center rounded-full border-1 bg-white"
+      ><Logo width={24} height={24} />
+    </span>
+    <Image
+      src={image}
+      alt="Happy dog!"
+      class="aspect-4/5 object-cover object-top"
+      width="320"
+      height="400"
+    />
+  </div>
+  <div
+    class="flex h-full max-h-fit min-h-fit w-full flex-col items-start p-4 text-start"
+    hidden={imageOnly}
+  >
+    <h5 class="text-2xl font-bold">{name}</h5>
+    {
+      !adopted && (
+        <div>
+          <div class="text-grey mb-1 flex items-center gap-2">
+            <span class="text-xs">{gender}</span>
+            <span class="text-xs">{age} años </span>
+          </div>
+          <p class="mb-2 line-clamp-3 text-sm text-ellipsis whitespace-nowrap">{presentation}</p>
+          <Button size="M" color="primary" className="w-full grow">
+            Conoce a {name}
+          </Button>
+        </div>
+      )
+    }
+  </div>
+</div>

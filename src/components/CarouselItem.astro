@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'div'> {
+  className?: string
+}
+
+const { className, ...props } = Astro.props
+---
+
+<div role="group" class={`basis-full min-w-0 shrink-0 grow-0 pl-4 flex ${className}`}>
+  <slot />
+</div>
