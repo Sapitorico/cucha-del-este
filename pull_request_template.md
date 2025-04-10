@@ -1,9 +1,6 @@
-## ¿Qué se ha hecho en esta PR?
+## Descripción de PR
 
 Se ha añadido una plantilla mejorada para las Pull Requests (PR) del proyecto, con el objetivo de estandarizar y facilitar la descripción de los cambios realizados.
-Esta nueva plantilla proporciona una estructura clara y consistente para los desarrolladores al documentar sus PRs, mejorando la comunicación dentro del equipo. En esta parte se describirá lo que se ha hecho.
-
-**Arregla:** _(Indica aquí si arregla algún issue, ya sea en JIRA, GitHub u otra herramienta)_
 
 ---
 
@@ -37,14 +34,6 @@ El objetivo es proporcionar una herramienta útil para los desarrolladores del e
 
 Por ejemplo:
 No es necesario realizar pruebas, ya que el cambio únicamente afecta al archivo de plantilla de PR y no a funcionalidades del producto.
-
----
-
-## Capturas de pantalla
-
-<!-- Si es necesario, añade capturas de pantalla u otros elementos visuales que ayuden a entender los cambios realizados -->
-
-No se requieren capturas de pantalla.
 
 ---
 
