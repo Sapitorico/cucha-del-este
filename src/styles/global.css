@@ -67,4 +67,5 @@ p {
   display: grid;
   place-items: center;
   padding-block: 4rem;
+  padding-inline: 0.5rem; /* 8px */
 }
