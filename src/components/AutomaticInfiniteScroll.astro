@@ -62,7 +62,7 @@ const items = Array.from({ length: quantity }, (_, index) => ({
       // Ajusta dinámicamente la duración de la animación
       const itemWidth = 320 + 16 // Ancho de cada tarjeta + espacio entre ellas (1rem = 16px)
       const quantity = scrollerContent.length // Número de elementos originales
-      const speed = 100 // Velocidad deseada en píxeles por segundo
+      const speed = 20 // Velocidad deseada en píxeles por segundo
 
       const animationDuration = ((itemWidth * quantity) / speed).toFixed(2) // Duración en segundos
 
