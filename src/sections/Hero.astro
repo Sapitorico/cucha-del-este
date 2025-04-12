@@ -4,12 +4,12 @@ import Button from '@/components/Button.astro'
 import SocialButton from '@/components/SocialButton.astro'
 ---
 
-<section class="section bg-primary-light-10 border-b-2">
-  <div class="container flex flex-wrap gap-6">
-    <div class="flex flex-1 flex-col justify-center gap-6">
+<section class="section bg-primary-light-10 border-b-2 text-center md:text-start">
+  <div class="container flex flex-wrap gap-6 [&>div]:grow [&>div]:basis-[364px]">
+    <div class="flex flex-col justify-center gap-6">
       <div class="flex flex-col">
-        <span class="text-xl font-bold">Cucha del este</span>
-        <h1 class="text-6xl font-black">
+        <span class="font-nunito text-xl font-extrabold uppercase">Cucha del este</span>
+        <h1 class="text-[clamp(2.25rem,1.821rem+2.143vw,3.75rem)] font-black">
           Encuentra a tú <span class="block">nuevo mejor amigo</span>
         </h1>
       </div>
@@ -17,18 +17,18 @@ import SocialButton from '@/components/SocialButton.astro'
         En nuestro refugio, cada 'cuchano' tiene una historia y un corazón lleno de amor esperando
         un hogar. Adopta, transforma vidas y deja que la tuya también sea transformada.
       </p>
-      <div class="flex items-center gap-6">
+      <div class="flex items-center justify-center gap-4 md:justify-start md:gap-6">
         <Button color="primary">Adoptar ahora!</Button>
         <Button>Donar</Button>
       </div>
       <div class="flex flex-col gap-2">
         <span class="text-sm">Síguenos en nuestra redes!</span>
-        <div class="flex gap-4">
+        <div class="flex justify-center gap-4 md:justify-start">
           <SocialButton social="instagram" />
           <SocialButton social="facebook" />
         </div>
       </div>
     </div>
-    <div class="grid flex-1 place-items-center"><HeroGrid /></div>
+    <div class="grid place-items-center"><HeroGrid /></div>
   </div>
 </section>
