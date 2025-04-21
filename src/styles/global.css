@@ -68,4 +68,15 @@ p {
   place-items: center;
   padding-block: 4rem;
   padding-inline: 0.5rem; /* 8px */
+  max-width: 100dvw;
+
+  @media (width >= 40rem /* 640px */) {
+    padding-inline: 1rem /* 16px */;
+  }
+  @media (width >= 48rem /* 768px */) {
+    padding-inline: 1.5rem /* 24px */;
+  }
+  @media (width >= 64rem /* 1024px */) {
+    padding-inline: 2rem /* 32px */;
+  }
 }
