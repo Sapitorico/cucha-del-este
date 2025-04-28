@@ -37,15 +37,18 @@
   }
 }
 
-html,
-body {
+html {
   font-family: 'Open Sans Variable', sans-serif;
-  margin: 0;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+body {
   display: grid;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
-  scrollbar-gutter: stable;
-  scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -55,7 +58,6 @@ h2,
 h2,
 h3,
 h4 {
-  text-wrap: balance;
   font-family: 'Nunito Variable', sans-serif;
 }
 
@@ -66,9 +68,10 @@ p {
 .section {
   display: grid;
   place-items: center;
-  padding-block: 4rem;
+  padding-block: 4rem; /* 64 */
   padding-inline: 0.5rem; /* 8px */
   max-width: 100dvw;
+  overflow: hidden;
 
   @media (width >= 40rem /* 640px */) {
     padding-inline: 1rem /* 16px */;

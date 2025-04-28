@@ -28,3 +28,6 @@ pnpm-lock.yaml
 bun.lock
 bun.lockb
 yarn.lock
+
+# idx
+.idx/
