@@ -8,6 +8,9 @@ interface Props {
 const { className } = Astro.props
 ---
 
-<div role="group" class={`basis-full min-w-0 shrink-0 grow-0 flex bg-red-300 w-full ${className}`}>
+<div
+  role="group"
+  class={`basis-full min-w-0 shrink-0 grow-0 grid  place-items-center  ${className}`}
+>
   <slot />
 </div>
