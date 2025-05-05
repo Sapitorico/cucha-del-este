@@ -1,7 +1,7 @@
 import EmblaCarousel, { type EmblaCarouselType, type EmblaOptionsType } from 'embla-carousel'
 
 const initializeCarousels = () => {
-  const OPTIONS: EmblaOptionsType = { skipSnaps: false }
+  const OPTIONS: EmblaOptionsType = { skipSnaps: false, slidesToScroll: 'auto' }
 
   const carousels = document.querySelectorAll('.carousel') as NodeListOf<Element>
 

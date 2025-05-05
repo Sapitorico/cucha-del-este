@@ -1,16 +1,18 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
-interface Props {
+interface Props extends HTMLAttributes<'div'> {
   className?: string
 }
 
-const { className } = Astro.props
+const { className, ...rest } = Astro.props
 ---
 
 <div
   role="group"
-  class={`basis-full min-w-0 shrink-0 grow-0 grid  place-items-center  ${className}`}
+  class:list={['min-w-0 flex-[1_0_100%] transform-[translate3d(0,0,0)]']}
+  class={rest.class}
+  {...rest}
 >
   <slot />
 </div>

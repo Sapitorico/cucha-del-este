@@ -15,17 +15,17 @@ import CarouselItem from '@/components/CarouselItem.astro'
         Cada adopción es una segunda oportunidad. ¡Ayúdanos a escribir finales felices!
       </p>
     </div>
-    <div class="flex w-full">
-      <Carousel>
+    <Carousel>
+      <div class="-ml-4 flex px-4">
         {
           Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem class="grid place-items-center pl-4 md:basis-1/2 lg:basis-1/3">
               <CardCuchano />
             </CarouselItem>
           ))
         }
-      </Carousel>
-    </div>
+      </div>
+    </Carousel>
     <div class="flex w-full max-w-[288px]">
       <Button className="grow">Conocer a todos</Button>
     </div>
