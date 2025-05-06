@@ -9,7 +9,7 @@ const { className, ...props } = Astro.props
 ---
 
 <button
-  class={`grid place-items-center border-1 h-12 w-12 transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 ${className || ''}`}
+  class={`md:grid place-items-center border-1 h-12 w-12 transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 hidden ${className || ''}`}
   {...props}
 >
   <slot />

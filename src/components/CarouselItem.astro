@@ -5,9 +5,14 @@ interface Props extends HTMLAttributes<'div'> {
   className?: string
 }
 
-const { className, ...props } = Astro.props
+const { className, ...rest } = Astro.props
 ---
 
-<div role="group" class={`basis-full min-w-0 shrink-0 grow-0 pl-4 flex ${className}`}>
+<div
+  role="group"
+  class:list={['min-w-0 flex-[1_0_100%] transform-[translate3d(0,0,0)]']}
+  class={rest.class}
+  {...rest}
+>
   <slot />
 </div>

@@ -4,19 +4,19 @@ import ArrowLeft from 'iconoir/icons/arrow-left.svg'
 import ArrowRight from 'iconoir/icons/arrow-right.svg'
 ---
 
-<div class="carousel relative w-full">
-  <div class="carousel__viewport overflow-hidden py-4">
-    <div class="-ml-4 flex">
+<div class="carousel relative m-auto w-full max-w-[100dvw]">
+  <div class="carousel__viewport touch-pan-y touch-pinch-zoom overflow-hidden">
+    <div class="-ml-4 flex px-4">
       <slot />
     </div>
   </div>
   <CarouselButton
-    className="carousel__button__prev absolute top-1/2 -left-12 -translate-y-1/2 border-black"
+    className="carousel__button__prev absolute top-1/2 left-0 -translate-y-1/2 border-black"
   >
     <ArrowLeft />
   </CarouselButton>
   <CarouselButton
-    className="carousel__button__next absolute top-1/2 -right-12 -translate-y-1/2 border-black"
+    className="carousel__button__next absolute top-1/2 right-0 -translate-y-1/2 border-black"
   >
     <ArrowRight />
   </CarouselButton>
