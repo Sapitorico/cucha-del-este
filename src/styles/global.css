@@ -68,18 +68,28 @@ p {
 .section {
   display: grid;
   place-items: center;
-  padding-block: 4rem; /* 64 */
   padding-inline: 1rem; /* 16px */
+  padding-block: 2.5rem; /* 40px */
   max-width: 100dvw;
-  overflow: hidden;
 
   @media (width >= 40rem /* 640px */) {
-    padding-inline: 1rem /* 16px */;
+    padding-inline: 1.5rem /* 24px */;
+    padding-block: 3rem; /* 48px */
   }
   @media (width >= 48rem /* 768px */) {
-    padding-inline: 1.5rem /* 24px */;
+    padding-inline: 2rem /* 32px */;
+    padding-block: 3.5rem; /* 56px */
   }
   @media (width >= 64rem /* 1024px */) {
-    padding-inline: 2rem /* 32px */;
+    padding-inline: 2.5rem /* 40px */;
+    padding-block: 4rem; /* 64px */
+  }
+  @media (width >= 80rem /* 1280px */) {
+    padding-inline: 3rem /* 48px */;
+    padding-block: 4.5rem; /* 72px */
+  }
+  @media (width >= 96rem /* 1536px */) {
+    padding-inline: 3.5rem /* 56px */;
+    padding-block: 5rem; /* 80px */
   }
 }
