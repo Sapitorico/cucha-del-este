@@ -5,20 +5,22 @@ import SocialButton from './SocialButton.astro'
 import Whatsapp from '@/assets/whatsapp.svg'
 ---
 
-<footer class="flex justify-around border-t-2 px-10 py-20">
+<footer
+  class="flex flex-col justify-around gap-4 border-t-2 px-4 py-20 text-center md:flex-row md:px-10 md:text-start [&>div]:items-center [&>div]:md:items-start"
+>
   <div class="flex flex-col">
     <picture class="mb-5">
-      <Image src={logo} alt="Cuchanos logo" class="h-[112px] w-fit" />
+      <Image src={logo} alt="Cuchanos logo" class="max-h-[112px] w-full" />
     </picture>
     <p class="mb-3"><strong>ONG</strong> Refugio de animales</p>
-    <div class="flex gap-5">
+    <div class="flex w-fit gap-5">
       <SocialButton social="facebook" />
       <SocialButton social="instagram" />
     </div>
   </div>
   <div class="flex flex-col gap-5">
     <h2 class="text-3xl font-black">Sobre Nosotros</h2>
-    <p class="w-[300px]">
+    <p class="w-full max-w-[300px]">
       Somos una <strong>ONG</strong> dedicada al rescate y bienestar de perros y gatos callejeros.
     </p>
     <p>Te invitamos a conocer mas...</p>
@@ -32,7 +34,7 @@ import Whatsapp from '@/assets/whatsapp.svg'
       <li>Eventos</li>
     </ul>
   </nav>
-  <div>
+  <div class="flex flex-col">
     <h2 class="mb-2 text-3xl font-black">Contáctanos</h2>
     <Whatsapp class="h-[32px] w-[32px]" />
   </div>
