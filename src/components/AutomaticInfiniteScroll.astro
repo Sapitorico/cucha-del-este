@@ -12,14 +12,16 @@ const items = Array.from({ length: quantity }, (_, index) => ({
 ---
 
 <div
-  class="scroller [mask-image-linear-gradient(to_right,transparent,#000_10%_90%,transparent) h-128 w-screen overflow-hidden py-4"
+  class="scroller [mask-image-linear-gradient(to_right,transparent,#000_10%_90%,transparent) h-128 max-w-screen overflow-hidden py-4"
 >
   <div
     class="scroller__inner flex h-full w-max animate-(--scroll) flex-nowrap items-center space-x-8"
   >
     {
       items.map((item) => (
-        <div class={`h-[464px] w-[320px] ${item.index % 2 !== 0 && '-translate-y-6'}`}>
+        <div
+          class={`aspect-4/5 max-h-[464px] w-[clamp(17rem,16.143rem_+_4.286vw,20rem)] ${item.index % 2 !== 0 && '-translate-y-6'}`}
+        >
           <CardCuchano adopted />
         </div>
       ))
@@ -62,7 +64,7 @@ const items = Array.from({ length: quantity }, (_, index) => ({
       // Ajusta dinámicamente la duración de la animación
       const itemWidth = 320 + 16 // Ancho de cada tarjeta + espacio entre ellas (1rem = 16px)
       const quantity = scrollerContent.length // Número de elementos originales
-      const speed = 20 // Velocidad deseada en píxeles por segundo
+      const speed = 30 // Velocidad deseada en píxeles por segundo
 
       const animationDuration = ((itemWidth * quantity) / speed).toFixed(2) // Duración en segundos
 
