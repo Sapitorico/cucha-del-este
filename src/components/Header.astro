@@ -1,24 +1,47 @@
 ---
 import Logo from '@/assets/logo.svg'
-import ButtonPrimary from './ButtonPrimary.astro'
+import Button from './Button.astro'
 ---
 
-<header class="sticky flex h-[6rem] w-full items-center justify-around">
-  <picture class="img-container">
-    <Logo />
-  </picture>
-  <nav class="align-center h-full">
-    <ul
-      id="navContainer"
-      class="flex h-full font-bold [&>li]:flex [&>li]:h-full [&>li]:cursor-pointer [&>li]:items-center [&>li]:px-8 [&>li]:py-4"
+<header class="sticky top-0 z-10 grid w-full place-items-center bg-white">
+  <div class="container flex h-16 w-full items-center justify-between gap-4">
+    <label class="peer z-2 ml-4">
+      <div class="flex h-10 w-9 cursor-pointer flex-col items-center justify-center">
+        <input class="peer hidden" type="checkbox" />
+        <div
+          class="h-[2px] w-[50%] origin-left translate-y-[0.45rem] rounded-sm bg-black transition-all duration-300 peer-checked:rotate-[-45deg]"
+        >
+        </div>
+        <div
+          class="h-[2px] w-[50%] origin-center rounded-md bg-black transition-all duration-300 peer-checked:hidden"
+        >
+        </div>
+        <div
+          class="h-[2px] w-[50%] origin-left -translate-y-[0.45rem] rounded-md bg-black transition-all duration-300 peer-checked:rotate-[45deg]"
+        >
+        </div>
+      </div>
+    </label>
+
+    <a href="/" class="mr-auto aspect-1/1 h-full py-2">
+      <Logo class="size-full" />
+    </a>
+
+    <nav
+      class="absolute top-0 z-1 h-fit w-[80dvw] -translate-x-100 bg-white pt-16 shadow-lg transition-all peer-has-checked:translate-x-0 md:static"
     >
-      <li id="active">Hogar</li>
-      <li>Nuestros Cuchanos</li>
-      <li>Sobre Nosotros</li>
-      <li>Eventos</li>
-    </ul>
-  </nav>
-  <ButtonPrimary isCta={true}>Donar</ButtonPrimary>
+      <ul
+        id="navContainer"
+        class="flex h-[100dvh] w-full flex-col font-bold [&>li]:flex [&>li]:h-fit [&>li]:cursor-pointer [&>li]:items-center [&>li]:px-8 [&>li]:py-4"
+      >
+        <li id="active">Hogar</li>
+        <li>Nuestros Cuchanos</li>
+        <li>Sobre Nosotros</li>
+        <li>Eventos</li>
+      </ul>
+    </nav>
+    <Button color="primary" size="L" className="mr-4">Donar</Button>
+  </div>
 </header>
 
 <style>
