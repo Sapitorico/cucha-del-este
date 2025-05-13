@@ -1,23 +1,33 @@
 ---
 import Logo from '@/assets/logo.svg'
 import Button from './Button.astro'
+
+const navLinks = [
+  { text: 'Hogar', href: '/' },
+  { text: 'Nuestros Cuchanos', href: '/cuchanos' },
+  { text: 'Sobre Nosotros', href: '/nosotros' },
+  { text: 'Eventos', href: '/eventos' },
+]
 ---
 
-<header class="sticky top-0 z-10 grid w-full place-items-center bg-white">
-  <div class="container flex h-16 w-full items-center justify-between gap-4">
-    <label class="peer z-2 ml-4">
-      <div class="flex h-10 w-9 cursor-pointer flex-col items-center justify-center">
-        <input class="peer hidden" type="checkbox" />
+<header class="sticky top-0 z-10 grid w-full place-items-center bg-white px-4">
+  <div class="container flex h-14 w-full items-center gap-4">
+    <!-- Hamburger menu  -->
+    <label class="peer z-2 grid size-8 cursor-pointer place-content-center sm:hidden">
+      <div
+        class="flex size-[22px] cursor-pointer flex-col items-center justify-center gap-[4px] [&>div]:bg-black"
+      >
+        <input id="menu-toggle" class="peer hidden" type="checkbox" />
         <div
-          class="h-[2px] w-[50%] origin-left translate-y-[0.45rem] rounded-sm bg-black transition-all duration-300 peer-checked:rotate-[-45deg]"
+          class="h-[2px] w-full origin-center rounded-sm transition-all duration-300 peer-checked:translate-y-[6px] peer-checked:rotate-45"
         >
         </div>
         <div
-          class="h-[2px] w-[50%] origin-center rounded-md bg-black transition-all duration-300 peer-checked:hidden"
+          class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:scale-x-0"
         >
         </div>
         <div
-          class="h-[2px] w-[50%] origin-left -translate-y-[0.45rem] rounded-md bg-black transition-all duration-300 peer-checked:rotate-[45deg]"
+          class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:-translate-y-[6px] peer-checked:-rotate-45"
         >
         </div>
       </div>
@@ -28,19 +38,25 @@ import Button from './Button.astro'
     </a>
 
     <nav
-      class="absolute top-0 z-1 h-fit w-[80dvw] -translate-x-100 bg-white pt-16 shadow-lg transition-all peer-has-checked:translate-x-0 md:static"
+      class="absolute top-0 left-0 z-1 h-[100dvh] w-[80dvw] -translate-x-[100dvw] overflow-y-auto bg-white pt-16 shadow-lg transition-all duration-300 ease-out peer-has-checked:-translate-x-0"
     >
-      <ul
-        id="navContainer"
-        class="flex h-[100dvh] w-full flex-col font-bold [&>li]:flex [&>li]:h-fit [&>li]:cursor-pointer [&>li]:items-center [&>li]:px-8 [&>li]:py-4"
-      >
-        <li id="active">Hogar</li>
-        <li>Nuestros Cuchanos</li>
-        <li>Sobre Nosotros</li>
-        <li>Eventos</li>
+      <ul id="navContainer" class="flex w-full flex-col font-bold">
+        {
+          navLinks.map((link, index) => (
+            <li>
+              <a
+                href={link.href}
+                id={index === 0 ? 'active' : ''}
+                class="flex h-fit cursor-pointer items-center px-8 py-4"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
-    <Button color="primary" size="L" className="mr-4">Donar</Button>
+    <Button color="primary" size="S" className="mr-4">Donar</Button>
   </div>
 </header>
 
@@ -87,7 +103,7 @@ import Button from './Button.astro'
 
 <script>
   const navItems = document.querySelectorAll('li')
-  const activeItem = document.getElementById('active')
+  const activeItem = document.getElementById('active') as HTMLElement
   // test.clientWidth gives width of DOM element in px!
   // Make function to move navContainer::afeter to the nav element and be its size
   const setFollower = (width = 0, right = 0, left = 0) => {
@@ -125,7 +141,7 @@ import Button from './Button.astro'
     })
 
     item.addEventListener('mouseleave', () => {
-      const activeNavItem = document.getElementById('active')
+      const activeNavItem = document.getElementById('active') as HTMLElement
       const right = activeNavItem.getBoundingClientRect().right
       const left = activeNavItem.getBoundingClientRect().left
       const width = activeNavItem.clientWidth
@@ -134,7 +150,7 @@ import Button from './Button.astro'
   })
 
   window.addEventListener('resize', () => {
-    const activeNavItem = document.getElementById('active')
+    const activeNavItem = document.getElementById('active') as HTMLElement
     const right = activeNavItem.getBoundingClientRect().right
     const left = activeNavItem.getBoundingClientRect().left
     const width = activeNavItem.clientWidth
