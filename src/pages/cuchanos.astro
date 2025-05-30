@@ -5,13 +5,15 @@ import Layout from '@/layouts/Layout.astro'
 
 <Layout title="Cuchanos">
   <main class="grid place-items-center">
-    <section class="container p-4">
-      <h1 class="my-6 text-center text-3xl font-black">Conoce a Nuestors Cuchanos</h1>
-      <div
-        class="grid w-full grid-cols-[repeat(auto-fit,minmax(288px,1fr)))] place-items-center gap-6 px-4"
+    <section class="container p-4 md:p-10">
+      <h1 class="my-6 text-center text-3xl font-black md:my-10 md:text-5xl">
+        Conoce a Nuestors Cuchanos
+      </h1>
+      <section
+        class="grid w-full grid-cols-[repeat(auto-fit,minmax(clamp(16rem,15.429rem+2.857vw,18rem),1fr))] place-items-center gap-8 px-4"
       >
         {Array.from({ length: 10 }).map((_, index) => <CardCuchano />)}
-      </div>
+      </section>
     </section>
   </main>
 </Layout>
