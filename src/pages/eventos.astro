@@ -1,0 +1,139 @@
+---
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title="Eventos">
+  <main class="grid place-items-center">
+    <section class="container p-4">
+      <div
+        class="grid grid-cols-1 gap-4 sm:grid-cols-6 md:grid-cols-6 md:grid-rows-5 [&>div]:shadow-xl"
+      >
+        <!-- Bingo Solidario -->
+        <div
+          class="group relative col-span-full overflow-hidden sm:col-span-4 md:col-span-4 md:row-span-3"
+        >
+          <div
+            class="absolute inset-0 bg-[url(src/assets/images/eventos/bingo-solidario.webp)] bg-cover bg-center transition-all duration-500 group-hover:scale-105"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-green-800/80 via-black/40 to-transparent"
+          >
+          </div>
+          <div class="relative z-10 flex h-full flex-col justify-between p-4 text-white md:p-6">
+            <h2
+              class="mb-4 text-[clamp(1.125rem,0.804rem_+_1.607vw,2.25rem)] font-bold transition-transform duration-500 group-hover:translate-y-2"
+            >
+              Bingo Solidario
+            </h2>
+            <p
+              class="text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              Nuestro Bingo Solidario es un evento diseñado para combinar entretenimiento, buena
+              compañía y apoyo a una causa noble: el bienestar de los animales rescatados por
+              nuestro refugio. A continuación, te explicamos cómo funciona:
+            </p>
+          </div>
+        </div>
+
+        <!-- Dinámica del Bingo y Premios -->
+        <div
+          class="group relative col-span-full overflow-hidden bg-green-100 sm:col-span-2 sm:col-start-5 md:col-span-2 md:col-start-5 md:row-span-3"
+        >
+          <div
+            class="absolute inset-0 bg-[url(src/assets/images/eventos/bingo-solidario.webp)] bg-cover bg-center transition-all duration-500 group-hover:scale-105"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-yellow-800/80 via-black/40 to-transparent"
+          >
+          </div>
+          <div class="relative z-10 flex h-full flex-col justify-between p-4 text-white md:p-6">
+            <h2
+              class="mb-4 text-[clamp(1.125rem,0.804rem_+_1.607vw,2.25rem)] font-bold transition-transform duration-500 group-hover:translate-y-2"
+            >
+              Dinámica del Bingo y Premios
+            </h2>
+            <p
+              class="text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              El juego se desarrolla en cuatro rondas, cada una con diferentes modalidades:
+            </p>
+            <ul
+              class="list-inside list-disc text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              <li>Terno</li>
+              <li>Quaterno</li>
+              <li>Línea entera</li>
+              <li>Bingo completo</li>
+            </ul>
+            <p
+              class="text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              Cada modalidad cuenta con premios específicos, diseñados para hacer de cada partida
+              una experiencia emocionante. Todos los fondos recaudados se destinan directamente al
+              cuidado y mantenimiento de los animales en nuestro refugio.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gastronomía -->
+        <div
+          class="group relative col-span-full overflow-hidden bg-blue-100 sm:col-span-3 sm:row-start-2 md:col-span-3 md:row-span-2 md:row-start-4"
+        >
+          <div
+            class="absolute inset-0 bg-[url(src/assets/images/eventos/bingo-solidario.webp)] bg-cover bg-center transition-all duration-500 group-hover:scale-105"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-orange-800/80 via-black/40 to-transparent"
+          >
+          </div>
+          <div class="relative z-10 flex h-full flex-col justify-between p-4 text-white md:p-6">
+            <h2
+              class="font-playfair-display mb-4 text-[clamp(1.125rem,0.804rem_+_1.607vw,2.25rem)] font-bold transition-transform duration-500 group-hover:translate-y-2"
+            >
+              Gastronomía
+            </h2>
+            <p
+              class="text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              Durante el evento, ofrecemos una amplia variedad de alimentos y bebidas para disfrutar
+              mientras participas. Podrás encontrar opciones deliciosas como tartas saladas y
+              dulces, panchos, pizzas, refrescos y mucho más. Todo está pensado para que tu
+              experiencia sea completa y agradable
+            </p>
+          </div>
+        </div>
+
+        <!-- Entretenimiento -->
+        <div
+          class="group relative col-span-full overflow-hidden sm:col-span-3 sm:col-start-4 sm:row-start-2 md:col-span-3 md:col-start-4 md:row-span-2 md:row-start-4"
+        >
+          <div
+            class="absolute inset-0 bg-[url(src/assets/images/eventos/bingo-solidario.webp)] bg-cover bg-center transition-all duration-500 group-hover:scale-105"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-red-800/80 via-black/40 to-transparent"
+          >
+          </div>
+          <div class="relative z-10 flex h-full flex-col justify-between p-4 text-white md:p-6">
+            <h2
+              class="font-playfair-display mb-4 text-[clamp(1.125rem,0.804rem_+_1.607vw,2.25rem)] font-bold transition-transform duration-500 group-hover:translate-y-2"
+            >
+              Entretenimiento
+            </h2>
+            <p
+              class="text-[clamp(0.625rem,0.482rem_+_0.714vw,1.125rem)] font-semibold transition-all duration-500 group-hover:-translate-y-2"
+            >
+              Además del bingo, contamos con actividades complementarias que garantizan una noche
+              llena de diversión. Desde karaoke hasta juegos interactivos con premios, siempre habrá
+              algo para mantener el entusiasmo y el espíritu solidario en alto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
