@@ -3,39 +3,56 @@ import Image from 'astro/components/Image.astro'
 import logo from '@/assets/logoFull.png'
 import SocialButton from './SocialButton.astro'
 import Whatsapp from '@/assets/whatsapp.svg'
+import Button from './Button.astro'
 ---
 
-<footer
-  class="flex flex-col justify-around gap-4 border-t-2 px-4 py-20 text-center md:flex-row md:px-10 md:text-start [&>div]:items-center [&>div]:md:items-start"
->
+<footer class="bg-primary-light-10 flex flex-col justify-around gap-8 border-t-2 px-6 py-10">
   <div class="flex flex-col">
-    <picture class="mb-5">
-      <Image src={logo} alt="Cuchanos logo" class="max-h-[112px] w-full" />
+    <picture>
+      <Image src={logo} alt="Cuchanos logo" class="h-fit w-[136px]" />
     </picture>
-    <p class="mb-3"><strong>ONG</strong> Refugio de animales</p>
+    <small><strong>ONG</strong> Refugio de animales</small>
+  </div>
+
+  <div class="flex flex-col">
+    <p class="text-2  xl font-extrabold">
+      Ayuda a <br /> Animales Sin Hogar a <br /> Tener una Vida Digna!
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <address>
+      Pedro Trápani 1350 Esq. Bayona
+      <a href="mailto:cuchadeleste@example.com">cuchadeleste@example.com</a><br />
+    </address>
     <div class="flex w-fit gap-5">
       <SocialButton social="facebook" />
       <SocialButton social="instagram" />
+    <Whatsapp class="h-[32px] w-[32px]" />
+
     </div>
   </div>
+
   <div class="flex flex-col gap-5">
-    <h2 class="text-3xl font-black">Sobre Nosotros</h2>
+    <h2 class="text-xl font-extrabold">Sobre Nosotros</h2>
     <p class="w-full max-w-[300px]">
       Somos una <strong>ONG</strong> dedicada al rescate y bienestar de perros y gatos callejeros.
     </p>
     <p>Te invitamos a conocer mas...</p>
   </div>
+
   <nav>
-    <h2 class="mb-2 text-3xl font-black">Navega</h2>
-    <ul class="flex flex-col gap-2">
-      <li>Inicio</li>
+    <ul class="flex flex-col gap-4">
       <li>Nuestros Cuchanos</li>
       <li>Sobre Nosotros</li>
       <li>Eventos</li>
+      <li>Como puedo Ayudar?</li>
     </ul>
   </nav>
+
   <div class="flex flex-col">
-    <h2 class="mb-2 text-3xl font-black">Contáctanos</h2>
-    <Whatsapp class="h-[32px] w-[32px]" />
+    <Button color='primary'>Apoyar el Proyecto</Button>
   </div>
+
+  <p class="text-center text-sm">&copy; {new Date().getFullYear()} Cucha Del Este</p>
 </footer>

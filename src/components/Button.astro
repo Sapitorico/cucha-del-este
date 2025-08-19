@@ -36,9 +36,12 @@ const { color = 'default', size = 'L', ...props } = Astro.props
     'ease-out',
     'hover:-translate-1',
     'hover:shadow-lg',
+    'text-white',
+    'text-center',
+    'font-semibold',
   ]}
   class={props.class}
   {...props}
 >
-  <span class="w-full text-center font-semibold text-white"><slot /></span>
+  <span class="w-full"><slot /></span>
 </button>

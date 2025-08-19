@@ -1,34 +1,31 @@
 ---
 import Image from 'astro/components/Image.astro'
-import Button from './Button.astro'
-import Logo from '@/assets/logo.svg'
-interface Props {
-  image?: string
+import Tazmania from '@/assets/images/adoptables/hembras/tazmania/tazmania.webp'
+import type { ImageMetadata } from 'astro'
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'article'> {
+  image?: ImageMetadata
   name?: string
   gender?: string
   age?: number
   presentation?: string
   imageOnly?: boolean
-  adopted?: boolean
 }
 
 const {
-  image = 'https://placehold.co/320x400?text=4:5',
+  image = Tazmania,
   name = 'Nombre',
   gender = 'genero',
   age = 0,
   presentation = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis vitae perspiciatis pariatur mollitia? Odio repellat sequi ut nobis minus, a deleniti saepe eos officia. Dicta dignissimoseligendi similique consectetur eos.',
   imageOnly = false,
-  adopted = false,
+  ...props
 } = Astro.props
 ---
 
-<div class="bg-primary-light-10 flex w-full max-w-80 flex-col shadow-xl">
+<article class:list={["bg-primary-light-10 flex w-full max-w-[13.25rem] flex-col shadow-lg"]} class={props.class}>
   <div class="realiteve h-full w-full overflow-hidden">
-    <span
-      class="border-primary absolute grid size-8 translate-2 place-items-center rounded-full border-1 bg-white"
-      ><Logo width={24} height={24} />
-    </span>
     <Image
       src={image}
       alt="Happy dog!"
@@ -41,20 +38,13 @@ const {
     class="flex h-full max-h-fit min-h-fit w-full flex-col items-start p-4 text-start"
     hidden={imageOnly}
   >
-    <h5 class="text-2xl font-bold">{name}</h5>
-    {
-      !adopted && (
-        <div>
-          <div class="text-grey mb-1 flex items-center gap-2">
-            <span class="text-xs">{gender}</span>
-            <span class="text-xs">{age} años </span>
-          </div>
-          <p class="mb-2 line-clamp-3 text-sm text-ellipsis whitespace-nowrap">{presentation}</p>
-          <Button size="M" color="primary" className="w-full grow">
-            Conoce a {name}
-          </Button>
-        </div>
-      )
-    }
+    <h5 class="text-lg font-extrabold">{name}</h5>
+    <div>
+      <div class="text-grey mb-1 flex items-center gap-2 text-[.5rem]">
+        <span >{gender}</span>
+        <span >{age} años </span>
+      </div>
+      <p class="mb-2 line-clamp-3 text-[.625rem] text-ellipsis whitespace-nowrap">{presentation}</p>
+    </div>
   </div>
-</div>
+</article>
