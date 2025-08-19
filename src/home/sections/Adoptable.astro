@@ -5,16 +5,14 @@ import Carousel from '@/components/Carousel.astro'
 import CarouselItem from '@/components/CarouselItem.astro'
 ---
 
-<section class="section">
+<section class="grid place-items-center py-8 text-center px-6">
   <div
-    class="container flex flex-col items-center justify-between gap-8 overflow-hidden text-center"
+    class="container items-center justify-between overflow-hidden text-center"
   >
-    <div class="flex flex-col gap-8">
-      <h1 class="text-5xl font-black">En Adopción</h1>
-      <p class="text-base">
-        Cada adopción es una segunda oportunidad. ¡Ayúdanos a escribir finales felices!
+      <p class="text-[0.5rem]">
+        Conoce a nuestros Cuchanos
       </p>
-    </div>
+      <h2 class="text-sm font-extrabold mb-6 mt-2">Encuentra a tu Nuevo Mejor Amigo</h2>
     <Carousel>
       {
         Array.from({ length: 5 }).map((_, index) => (
@@ -24,8 +22,6 @@ import CarouselItem from '@/components/CarouselItem.astro'
         ))
       }
     </Carousel>
-    <div class="flex w-full max-w-[288px]">
-      <Button className="grow">Conocer a todos</Button>
-    </div>
+    <Button class="w-full mt-6 mb-1" color="primary" size="M">Todos nuestros Cuchanos</Button>
   </div>
 </section>

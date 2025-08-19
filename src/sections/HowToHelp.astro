@@ -2,38 +2,34 @@
 import Button from '@/components/Button.astro'
 ---
 
-<section class="section">
-  <div class="container flex flex-col items-center gap-8 text-center">
+<section class="grid place-items-center py-8 text-center px-6">
+  <div class="container flex flex-col items-center gap-6 text-center">
     <div class="text-wrapper flex flex-col gap-8">
-      <h1 class="text-5xl font-black">¿Cómo puedo ayudar?</h1>
+      <h2 class="text-sm font-extrabold">¿Cómo puedo ayudar?</h2>
     </div>
     <div class="flex w-full flex-wrap items-center justify-center gap-10">
-      <div
-        class="flex h-[304px] max-w-[520px] flex-col justify-between border px-10 py-8 shadow-md"
-      >
-        <div class="flex flex-col gap-5">
-          <h2 class="text-left text-3xl font-black">Donaciones</h2>
-          <p class="text-left text-sm">
-            Tus donaciones materiales son esenciales para el día a día de nuestros cuchanos. Comida,
-            medicinas o insumos como cartones y mantas les brindan comodidad y salud. ¡Cada aporte
-            cuenta!
-          </p>
-        </div>
-        <Button size="M">Saber más</Button>
-      </div>
-      <div
-        class="flex h-[304px] max-w-[520px] flex-col justify-between border-1 px-10 py-8 shadow-md"
-      >
-        <div class="flex flex-col gap-5">
-          <h2 class="text-left text-3xl font-black">Padrinazgo</h2>
-          <p class="text-left text-sm">
-            Conviértete en el ángel guardián de un cuchano. Apadrinar significa cubrir sus
-            necesidades básicas o médicas mientras espera un hogar. ¡Recibirás actualizaciones y
-            serás parte de su recuperación!
-          </p>
-        </div>
-        <Button size="M">Saber más</Button>
-      </div>
+      {
+        [
+          {
+            title: 'Domaciones',
+            description:
+              'Tus donaciones materiales son esenciales para el día a día de nuestros cuchanos. Comida, medicinas o insumos como cartones y mantas les brindan comodidad y salud. ¡Cada aporte cuenta!',
+          },
+          {
+            title: 'Padrinazgo',
+            description:
+              'Conviértete en el prójimo guardián de un cuchano. Apadrinar significa cubrir sus necesidades básicas o médicas mientras espera un hogar. ¡Recibirás actualizaciones y serás parte de su recuperación!',
+          },
+        ].map(({ title, description }) => (
+          <article class="flex h-fit max-w-[520px] flex-col justify-between gap-5 border px-10 py-8 shadow-md">
+            <h2 class="text-left text-xl font-black">{title}</h2>
+            <p class="text-left text-[.625rem]">{description}</p>
+            <Button class="w-fit px-8" size="M">
+              Saber más
+            </Button>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>

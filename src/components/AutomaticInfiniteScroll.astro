@@ -1,8 +1,6 @@
 ---
 import CardCuchano from '@/components/CardCuchano.astro'
 
-const width = '320px'
-const height = '464px'
 const quantity = 100
 
 const items = Array.from({ length: quantity }, (_, index) => ({
@@ -20,9 +18,9 @@ const items = Array.from({ length: quantity }, (_, index) => ({
     {
       items.map((item) => (
         <div
-          class={`aspect-4/5 max-h-[464px] w-[clamp(17rem,16.143rem_+_4.286vw,20rem)] ${item.index % 2 !== 0 && '-translate-y-6'}`}
+          class={`aspect-4/5 max-h-[464px] w-[212px] ${item.index % 2 !== 0 && '-translate-y-4'}`}
         >
-          <CardCuchano adopted />
+          <CardCuchano class="shadow-sm"/>
         </div>
       ))
     }
@@ -62,7 +60,7 @@ const items = Array.from({ length: quantity }, (_, index) => ({
       })
 
       // Ajusta dinámicamente la duración de la animación
-      const itemWidth = 320 + 16 // Ancho de cada tarjeta + espacio entre ellas (1rem = 16px)
+      const itemWidth = 212 + 24 // Ancho de cada tarjeta + espacio entre ellas (1rem = 16px)
       const quantity = scrollerContent.length // Número de elementos originales
       const speed = 30 // Velocidad deseada en píxeles por segundo
 
