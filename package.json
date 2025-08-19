@@ -20,6 +20,7 @@
     "@astrojs/vercel": "^8.2.6",
     "@fontsource-variable/nunito": "^5.2.5",
     "@fontsource-variable/open-sans": "^5.2.5",
+    "@fontsource-variable/roboto-slab": "^5.2.6",
     "@tailwindcss/vite": "^4.1.6",
     "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.13.2",
