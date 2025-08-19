@@ -24,7 +24,10 @@ const {
 } = Astro.props
 ---
 
-<article class:list={["bg-primary-light-10 flex w-full max-w-[13.25rem] flex-col shadow-lg"]} class={props.class}>
+<article
+  class:list={['bg-primary-light-10 flex w-full max-w-[13.25rem] flex-col shadow-lg']}
+  class={props.class}
+>
   <div class="realiteve h-full w-full overflow-hidden">
     <Image
       src={image}
@@ -41,8 +44,8 @@ const {
     <h5 class="text-lg font-extrabold">{name}</h5>
     <div>
       <div class="text-grey mb-1 flex items-center gap-2 text-[.5rem]">
-        <span >{gender}</span>
-        <span >{age} años </span>
+        <span>{gender}</span>
+        <span>{age} años </span>
       </div>
       <p class="mb-2 line-clamp-3 text-[.625rem] text-ellipsis whitespace-nowrap">{presentation}</p>
     </div>
