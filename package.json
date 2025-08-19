@@ -17,12 +17,12 @@
     "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
   },
   "dependencies": {
-    "@astrojs/vercel": "^8.1.4",
+    "@astrojs/vercel": "^8.2.6",
     "@fontsource-variable/nunito": "^5.2.5",
     "@fontsource-variable/open-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.1.6",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.7.13",
+    "astro": "^5.13.2",
     "embla-carousel": "^8.6.0",
     "iconoir": "^7.11.0",
     "sharp": "^0.34.1",

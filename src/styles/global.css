@@ -93,3 +93,29 @@ p {
     padding-block: 5rem; /* 80px */
   }
 }
+
+.responsive-margins {
+  margin: 1rem; /* 16px */
+  margin-block: 2rem; /* 32px */
+
+  @media (width >= 40rem /* 640px */) {
+    margin: 1.5rem /* 24px */;
+    margin-block: 2.5rem; /* 40px */
+  }
+  @media (width >= 48rem /* 768px */) {
+    margin: 2rem /* 32px */;
+    margin-block: 3rem; /* 48px */
+  }
+  @media (width >= 64rem /* 1024px */) {
+    margin: 2.5rem /* 40px */;
+    margin-block: 3.5rem; /* 56px */
+  }
+  @media (width >= 80rem /* 1280px */) {
+    margin: 3rem /* 48px */;
+    margin-block: 4rem; /* 64px */
+  }
+  @media (width >= 96rem /* 1536px */) {
+    margin: 3.5rem /* 56px */;
+    margin-block: 4.5rem; /* 72px */
+  }
+}
