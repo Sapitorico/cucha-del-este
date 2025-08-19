@@ -15,18 +15,17 @@ const sizes = {
 interface Props extends HTMLAttributes<'button'> {
   color?: keyof typeof colors
   size?: keyof typeof sizes
-  className?: string
 }
 
-const { color = 'default', size = 'L', className, ...props } = Astro.props
+const { color = 'default', size = 'L', ...props } = Astro.props
 ---
 
 <button
   class:list={[
-    'active:shadow-sm',
-    'active:translate-0',
+    'active:shadow-xs',
+    'active:translate-1',
     'flex',
-    'w-[min(12rem,100%)]',
+    // 'w-[min(12rem,100%)]',
     'transform',
     'cursor-pointer',
     'border-black',
@@ -37,8 +36,8 @@ const { color = 'default', size = 'L', className, ...props } = Astro.props
     'ease-out',
     'hover:-translate-1',
     'hover:shadow-lg',
-    className || '',
   ]}
+  class={props.class}
   {...props}
 >
   <span class="w-full text-center font-semibold text-white"><slot /></span>

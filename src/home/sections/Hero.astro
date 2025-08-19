@@ -1,0 +1,61 @@
+---
+import HeroGrid from '@/components/HeroGrid.astro'
+import Button from '@/components/Button.astro'
+import SocialButton from '@/components/SocialButton.astro'
+import image from '@/assets/images/hero-grid-image-6.webp'
+import { Image } from 'astro:assets'
+import Home from '@/assets/icons/home.svg'
+import Bone from '@/assets/icons/bone.svg'
+---
+
+<section class="bg-primary-light-10 grid place-items-center border-b-2 py-10 text-center">
+  <div class="relative container flex flex-col items-center gap-2">
+    <h1 class="text-xl font-extrabold relative">
+      <Home class="size-8 absolute -top-4 -right-4"/>
+      Ayuda a <br /> Animales Sin Hogar a <br /> Tener una Vida Digna!
+      <Bone class="size-8 absolute -button-4 -left-12"/>
+    </h1>
+    <h2 class="text-xs">Adopta, Transforma Vidas y deja que <br /> Transformen la Tuya.
+    </h2>
+    <Button color="primary" size="M" class="w-[9rem]">Adopta Ahora!</Button>
+
+    <!-- images grid -->
+    <div class="grid grid-cols-5 grid-rows-5 gap-2 [&>div]:shadow-md [&>div]:w-15 -translate-y-4">
+      <div class="row-span-3">
+        <Image
+          src={image}
+          alt="Dos perros de pie sobre el techo de una caseta en el refugio."
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div class="col-start-2 row-span-3 row-start-2">
+        <Image
+          src={image}
+          alt="Dos perros de pie sobre el techo de una caseta en el refugio."
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div class="col-start-3 row-span-3 row-start-3">
+        <Image
+          src={image}
+          alt="Dos perros de pie sobre el techo de una caseta en el refugio."
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div class="col-start-4 row-span-3 row-start-2">
+        <Image
+          src={image}
+          alt="Dos perros de pie sobre el techo de una caseta en el refugio."
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div class="col-start-5 row-span-3 row-start-1">
+        <Image
+          src={image}
+          alt="Dos perros de pie sobre el techo de una caseta en el refugio."
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+    </div>
+  </div>
+</section>

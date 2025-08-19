@@ -1,0 +1,161 @@
+---
+import Logo from '@/assets/logo.svg'
+import Button from './Button.astro'
+
+const navLinks = [
+  { text: 'Hogar', href: '/' },
+  { text: 'Nuestros Cuchanos', href: '/cuchanos' },
+  { text: 'Sobre Nosotros', href: '/nosotros' },
+  { text: 'Eventos', href: '/eventos' },
+]
+---
+
+<header class="sticky top-0 z-10 grid w-full place-items-center bg-white px-4">
+  <div class="container flex h-14 w-full items-center gap-4">
+    <!-- Hamburger menu  -->
+    <label class="peer z-2 grid size-8 cursor-pointer place-content-center sm:hidden">
+      <div
+        class="flex size-[22px] cursor-pointer flex-col items-center justify-center gap-[4px] [&>div]:bg-black"
+      >
+        <input id="menu-toggle" class="peer hidden" type="checkbox" />
+        <div
+          class="h-[2px] w-full origin-center rounded-sm transition-all duration-300 peer-checked:translate-y-[6px] peer-checked:rotate-45"
+        >
+        </div>
+        <div
+          class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:scale-x-0"
+        >
+        </div>
+        <div
+          class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:-translate-y-[6px] peer-checked:-rotate-45"
+        >
+        </div>
+      </div>
+    </label>
+
+    <a href="/" class="mr-auto aspect-1/1 h-full py-2">
+      <Logo class="size-full" />
+    </a>
+
+    <nav
+      class="absolute top-0 left-0 z-1 h-[100dvh] w-[80dvw] -translate-x-[100dvw] overflow-y-auto bg-white pt-16 shadow-lg transition-all duration-300 ease-out peer-has-checked:-translate-x-0"
+    >
+      <ul id="navContainer" class="flex w-full flex-col font-bold">
+        {
+          navLinks.map((link, index) => (
+            <li>
+              <a
+                href={link.href}
+                id={index === 0 ? 'active' : ''}
+                class="flex h-fit cursor-pointer items-center px-8 py-4"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <Button color="primary" size="S" className="mr-4">Donar</Button>
+  </div>
+</header>
+
+<style>
+  :root {
+    --animation-followerActive: hidden;
+    --animation-followerWidth: 80px;
+    --animation-followerRight: 0px;
+    --animation-followerLeft: 0px;
+  }
+
+  header {
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    background-color: black;
+  }
+
+  #navContainer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: var(--animation-followerRight);
+    left: var(--animation-followerLeft);
+    width: var(--animation-followerWidth);
+    height: 3px;
+    background-color: #ee7a14;
+    visibility: var(--animation-followerActive);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  #active {
+    background-color: #ee7a1436;
+    box-shadow: inset 0 -0.2rem 0 0 rgba(242, 153, 74, 0.5);
+  }
+</style>
+
+<script>
+  const navItems = document.querySelectorAll('li')
+  const activeItem = document.getElementById('active') as HTMLElement
+  // test.clientWidth gives width of DOM element in px!
+  // Make function to move navContainer::afeter to the nav element and be its size
+  const setFollower = (width = 0, right = 0, left = 0) => {
+    document.documentElement.style.setProperty('--animation-followerActive', 'visible')
+    document.documentElement.style.setProperty('--animation-followerWidth', `${width}px`)
+    document.documentElement.style.setProperty('--animation-followerRight', `${right}px`)
+    document.documentElement.style.setProperty('--animation-followerLeft', `${left}px`)
+  }
+  // Set follower position and size at first mount
+  const right = activeItem.getBoundingClientRect().right
+  const left = activeItem.getBoundingClientRect().left
+  const width = activeItem.clientWidth
+  setFollower(width, right, left)
+  // Clears the "active" class from all nav items
+  const clearActive = () => {
+    navItems.forEach((item) => {
+      item.id = 'inactive'
+    })
+  }
+  // Adds click event to nav items
+  navItems.forEach((item: HTMLElement) => {
+    item.addEventListener('click', () => {
+      if (item.id === 'active') return
+      clearActive()
+      item.id = 'active'
+    })
+  })
+  // Hover animation
+  navItems.forEach((item: HTMLElement) => {
+    item.addEventListener('mouseenter', () => {
+      const right = item.getBoundingClientRect().right
+      const left = item.getBoundingClientRect().left
+      const width = item.clientWidth
+      setFollower(width, right, left)
+    })
+
+    item.addEventListener('mouseleave', () => {
+      const activeNavItem = document.getElementById('active') as HTMLElement
+      const right = activeNavItem.getBoundingClientRect().right
+      const left = activeNavItem.getBoundingClientRect().left
+      const width = activeNavItem.clientWidth
+      setFollower(width, right, left)
+    })
+  })
+
+  window.addEventListener('resize', () => {
+    const activeNavItem = document.getElementById('active') as HTMLElement
+    const right = activeNavItem.getBoundingClientRect().right
+    const left = activeNavItem.getBoundingClientRect().left
+    const width = activeNavItem.clientWidth
+    setFollower(width, right, left)
+  })
+
+  // TODO: pro animation for nav items
+</script>
