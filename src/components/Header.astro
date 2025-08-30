@@ -1,11 +1,61 @@
 ---
 import Logo from '@/assets/logo.svg'
-import Menu from '@/assets/icons/menu.svg'
+import FootPrint from '@/assets/icons/footprint.svg'
+
+const pathName = Astro.url.pathname
 ---
 
-<header class="bg-primary-light-10 sticky top-0 z-100 flex h-10 w-full place-items-center px-4">
+<header class="bg-primary-light-10 sticky top-0 z-100 flex h-13 w-full place-items-center px-4">
   <a href="/" class="mr-auto aspect-1/1 h-full py-2">
     <Logo class="size-full" />
   </a>
-  <Menu />
+
+  <!-- Menu toggle  -->
+  <label class="peer z-2 grid size-8 cursor-pointer place-content-center">
+    <div
+      class="flex size-[22px] cursor-pointer flex-col items-center justify-center gap-[4px] [&>div]:bg-black"
+    >
+      <input id="menu-toggle" class="peer hidden" type="checkbox" />
+      <div
+        class="h-[2px] w-full origin-center rounded-sm transition-all duration-300 peer-checked:translate-y-[6px] peer-checked:rotate-45"
+      >
+      </div>
+      <div
+        class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:scale-x-0"
+      >
+      </div>
+      <div
+        class="h-[2px] w-full origin-center rounded-md transition-all duration-300 peer-checked:-translate-y-[6px] peer-checked:-rotate-45"
+      >
+      </div>
+    </div>
+  </label>
+
+  <nav class="bg-primary-light-10 absolute top-0 left-0 grid peer-has-checked:h-dvh w-screen place-content-center transition-all h-0 overflow-hidden">
+    <ul>
+      {
+        [
+          { text: 'Hogar', href: '/' },
+          { text: 'Nuestros Cuchanos', href: '/cuchanos' },
+          { text: 'Sobre Nosotros', href: '/nosotros' },
+          { text: 'Eventos', href: '/eventos' },
+        ].map(({ href, text }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'flex w-screen cursor-pointer items-center justify-center py-3 my-3 text-xl',
+                pathName === href && ['text-primary font-medium'],
+              ]}
+            >
+              <span class="relative">
+                {pathName === href && <FootPrint class="-left-10 top-1/2 -translate-y-1/2 absolute my-auto size-5" />}
+                {text}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
